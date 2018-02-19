@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="stackPane" maxHeight="Infinity" maxWidth="Infinity" prefHeight="600" prefWidth="800"
+           xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="edt.ca.utoronto.individual.MainController">
+    <JFXTabPane fx:id="tabs" tabClosingPolicy="UNAVAILABLE">
+
+        <Tab fx:id="acct" text="Accounts">
+            <HBox>
+                <VBox alignment="TOP_CENTER" maxWidth="200" minWidth="200" prefWidth="200" spacing="10">
+                    <HBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                    </HBox.margin>
+
+                    <JFXComboBox fx:id="acc_drop" promptText="Choose Account"/>
+                    <Label fx:id="name" styleClass="normal-label-white" text="Account name: -----"/>
+                    <Separator prefWidth="200.0"/>
+                    <JFXButton fx:id="refresh" graphicTextGap="5.0" mnemonicParsing="false" text="Refresh"
+                               textAlignment="CENTER">
+                        <graphic>
+                            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@/image/update.png"/>
+                            </ImageView>
+                        </graphic>
+                    </JFXButton>
+                    <Label styleClass="subtitle-label" text="PASC"/>
+                    <Label fx:id="balance" styleClass="title-label" text="------"/>
+                    <Separator layoutX="10.0" layoutY="45.0" prefWidth="200.0"/>
+                    <ImageView fx:id="qr" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"/>
+                    <HBox alignment="BASELINE_LEFT" spacing="10">
+                        <JFXTextField fx:id="amountt" alignment="BASELINE_RIGHT" prefWidth="1000" promptText="Amount"/>
+                        <Label alignment="BASELINE_RIGHT" minWidth="30" styleClass="normal-label" text="PASC"/>
+                    </HBox>
+                    <JFXTextField fx:id="payloadt" alignment="BASELINE_RIGHT" promptText="Payload"/>
+                </VBox>
+                <JFXListView fx:id="translist" prefWidth="20000"/>
+            </HBox>
+        </Tab>
+        <Tab fx:id="blkt" text="Block Explorer">
+
+        </Tab>
+    </JFXTabPane>
+</StackPane>
