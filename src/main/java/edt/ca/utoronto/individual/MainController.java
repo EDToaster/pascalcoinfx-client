@@ -151,7 +151,19 @@ public class MainController {
                 String hexpay = Base64.getEncoder().withoutPadding().encodeToString(b);
                 System.out.println(hexpay);
 
+                byte[] fixed = new byte[b.length];
+                for (int i = 0; i < b.length / 4f; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        fixed[i * 4 + j] = b[i * 4 + 3 - j];
+                    }
+                }
 
+                StringBuilder sb = new StringBuilder();
+                for(byte bb: fixed){
+                    sb.append(String.format("%02X", bb));
+                }
+
+                System.out.println(sb.toString());
                 DecryptedPayload p = client.payloadDecrypt(hexpay, null);
                 boolean found = p != null;
 
